@@ -58,7 +58,7 @@ def main():
     on_ground = True
 
     # Camera State
-    yaw = 0.0          # degrees (0 = looking down +Z)
+    yaw = 0.0          # degrees (0 = looking down -Z)
     pitch = 0.0        # degrees
     current_fov = config.BASE_FOV
     aspect = float(config.WINDOW_WIDTH) / float(config.WINDOW_HEIGHT)
@@ -98,7 +98,7 @@ def main():
 
             elif event.type == pygame.MOUSEMOTION and window.mouse_grabbed:
                 dx, dy = event.rel
-                yaw += dx * config.MOUSE_SENSITIVITY
+                yaw -= dx * config.MOUSE_SENSITIVITY
                 pitch -= dy * config.MOUSE_SENSITIVITY
                 pitch = float(np.clip(pitch, config.PITCH_MIN, config.PITCH_MAX))
 
